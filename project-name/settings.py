@@ -53,7 +53,6 @@ INSTALLED_APPS = [
     "allauth.account",
     "allauth.socialaccount",
     "rest_auth.registration",
-
     # swagger
     # 'django.contrib.staticfiles',  # required for serving swagger ui's css/js files
     'drf_yasg',
