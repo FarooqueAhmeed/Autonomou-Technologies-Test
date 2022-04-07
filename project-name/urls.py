@@ -5,11 +5,14 @@ from django.contrib import admin
 from django.urls import path,include
 from django.conf.urls import url
 
+from app.views import *
+
 
 # for swagger
 from rest_framework import permissions
 from drf_yasg.views import get_schema_view
 from drf_yasg import openapi
+from rest_framework.routers import DefaultRouter
 
 
 schema_view = get_schema_view(
@@ -26,10 +29,32 @@ schema_view = get_schema_view(
 )
 
 
+# router = DefaultRouter()
+# router.register('plan', PlanViewSet.as_view, basename='blogs')
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('app/', include('app.urls')),
+
+    #path('', ApiOverview, name='home'),
+    path('create/', add_app, name='add-app'),
+    path('', view_apps, name='view-apps'),
+    path('detail/<int:pk>/', app_detail, name='app-detail'),
+
+    path('plan/', PlanViewSet, name='app-Plan'),
+    path('plans/', view_plans, name='apps-Plans'),
+
+
+    path('my_plans/', view_my_plans, name='apps-view_plans_created_by_me'),
+
+    path('plan_detail/<int:pk>/', view_plan_detail, name='apps-view_plan_detail'),
+
+    path('subscription_detail/<int:pk>/', view_subscription_detail, name='apps-view_subscription_detail'),
+
+
+
+
 
 
 
