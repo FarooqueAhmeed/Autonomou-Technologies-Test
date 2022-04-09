@@ -20,7 +20,7 @@ class PlanSerializer(serializers.ModelSerializer):
     # username = serializers.SerializerMethodField("getUsername")
 
     class Meta:
-        fields = ('id', 'user', 'app', 'plan',)
+        fields = ('id', 'user', 'app', 'plan','subscription')
         model = Plan
 
 
@@ -31,7 +31,7 @@ class Subscription_detail_Serializer(serializers.ModelSerializer):
     username = serializers.SerializerMethodField("getUsername")
 
     class Meta:
-        fields = ('id', 'username', 'app', 'plan',)
+        fields = ('id', 'username', 'app', 'plan','subscription')
         model = Plan
 
 
